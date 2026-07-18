@@ -769,3 +769,27 @@ input { font-family: inherit; border: none; outline: none; }
 @media (max-width: 480px) {
   .cart-drawer { max-width: 100%; }
 }
+
+@media (max-width: 400px) {
+  .header-inner {
+    padding: 0 10px;
+    gap: 4px;
+  }
+  .logo-text{
+    font-size:13px;
+  }
+  .logo-mark{
+    width:28px;
+    height:28px;
+    font-size:12px;
+  }
+  .icon-btn i {
+    font-size: 16px;
+  }
+  .header-actions{
+    gap:0;
+  }
+  .burgeur{
+    width:34px;
+  }
+}
