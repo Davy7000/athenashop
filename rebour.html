@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./images/favicon-32.png" type="image/png" sizes="32*32">
+<link rel="icon" href="./images/favicon-16.png" type="image/png" sizes="16*16">
+<link rel="apple-touch-icon" href="./images/favicon-180.png" type="image/svg+xml" sizes="180*180">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: url('./images/fond1.jpg');
+            color: white;
+        }
+        .heure{
+            width: 35%;
+            font-size: 20px;
+            text-indent: 0px;
+            min-height: 10vh;
+            border: 2px solid rgba(218, 208, 208, 0.5);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            position:relative;
+            top: 15em;
+            left:7.3em;
+            border-radius: 10px;
+        }
+        #message{
+            width: 80%;
+            font-size: 20px;
+            text-indent: 0px;
+            min-height: 10vh;
+            border: 2px solid rgba(218, 208, 208, 0.5);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            justify-content: center;
+            position:relative;
+            top: 6em;
+            left:3em;
+            border-radius: 10px;
+        }
+       
+    </style>
+</head>
+<body>
+    <span class="heure"> 00H:00M:00S</span>
+     <div id="message">Impossible de recuperez les infos</div>
+
+
+</div>
+     <script>
+//recuperation du nom et prenom du client
+const prenom = localStorage.getItem('name');
+const nom = localStorage.getItem('nom');
+        //message en boite
+        //moi et jour en lettre
+
+         const moisenlettre =["Janvier","Fevrier","Mars","Avril","Mai","Jui","Juillet","Aout","Septembre","Octobre","Novembre","Décembre"];
+
+         const jourenlettre =["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+           // fin de la recuperation
+        const message = document.getElementById('message');
+        const affheure = document.querySelector('.heure');
+        function durer() {
+            //recuperation du temps et autre 
+            const heure = new Date().getHours();
+            const minutes = new Date().getMinutes();
+            const secondes = new Date().getSeconds();
+            const auj =new Date().getDay();
+            const jour =new Date().getDate();
+            const mois =new Date().getMonth();
+            const anne =new Date().getFullYear();
+           //fin de la recuperation
+           // transformation du mois
+           const moiss = moisenlettre[mois];
+           const jours = jourenlettre[auj-1];
+           // affichage de l'heure
+      affheure.textContent = `${heure}H:${minutes}M:${secondes}S`;
+        //fin affichage
+             if (heure < 12) {
+                 message.textContent = 'Bonjour,'+ ' ' + prenom.charAt(0).toUpperCase() + prenom.slice(1) + ' ' + nom.toUpperCase()
+                 + ' ' + 'veuillez patienter votre page est en cours de chargement.';
+             } else if(heure < 18) {
+                message.textContent = 'Bon apres midi,'+ ' ' + prenom.charAt(0).toUpperCase() + prenom.slice(1) + ' ' + nom.toUpperCase() + ' ' + `veuillez patienter votre page est en cours de chargement.`;
+             } else {
+                   message.textContent = 'Bonsoir,'+ ' ' + prenom.charAt(0).toUpperCase() + prenom.slice(1) + ' ' + nom.toUpperCase()
+                   + ' ' + 'veuillez patienter votre page est en cours de chargement.';
+             }
+        }
+        
+        // appel de la fonction 
+        durer();
+
+        // mise a jour des secondes 
+        setInterval(durer,1000);
+
+        setTimeout(() => {
+           window.open('./compte.html', '_self');
+        }, 5000);
+     </script>
+</body>
+</html>

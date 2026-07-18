@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AthénaShop — Le meilleur, au meilleur prix</title>
+<!-- favicon athena -->
+<link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="./images/favicon-32.png" type="image/png" sizes="32*32">
+<link rel="icon" href="./images/favicon-16.png" type="image/png" sizes="16*16">
+<link rel="apple-touch-icon" href="./images/favicon-180.png" type="image/svg+xml" sizes="180*180">
+<!-- Google Fonts : Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER (fixe) ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="#" class="logo" aria-label="AthénaShop - accueil">
+      <span class="logo-mark"><i class="fa-solid fa-bolt"></i></span>
+      <span class="logo-text"><strong>Athéna</strong>Shop</span>
+    </a>
+
+    <!-- Barre de recherche -->
+    <div class="search-bar">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" id="searchInput" placeholder="Rechercher une montre, une robe, des couches…" autocomplete="off">
+      <button class="search-btn" id="searchBtn" aria-label="Lancer la recherche">Rechercher</button>
+    </div>
+
+    <!-- Icônes utilitaires -->
+    <div class="header-actions">
+      <button class="icon-btn" id="locationBtn" aria-label="Localisation">
+        <i class="fa-solid fa-location-dot"></i>
+        <span class="icon-label" id="livraisonbtn">Livrer à Pointe-Noire</span>
+      </button>
+      <button class="icon-btn" id="userBtn" aria-label="Mon compte">
+        <i class="fa-regular fa-user"></i>
+        <span class="icon-label">Compte</span>
+      </button>
+      <button class="icon-btn cart-btn" id="cartBtn" aria-label="Panier">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="icon-label">Panier</span>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="burger" id="burgerBtn" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="main-nav" id="mainNav">
+    <ul>
+      <li><a href="#produits" class="active"><i class="fa-solid fa-bag-shopping"></i> Produits</a></li>
+      <li><a href="#livraison"><i class="fa-solid fa-truck-fast"></i> Livraison</a></li>
+      <!-- <li><a href="#reparation"><i class="fa-solid fa-screwdriver-wrench"></i> Réparation</a></li> -->
+      <li><a href="https://wa.me/242053024629?text=Bonjour%20!%20Je%20souhaite%20obtenir%20des%20informations%20sur%20vos%20produits." target="_blank"><i class="fa-brands fa-whatsapp"></i> Services clients</a></li>
+      <li><a href="#promotions" class="promo-link" onclick="alert('pas de promotions pour le moment')"><i class="fa-solid fa-fire"></i> Promotions</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Espace pour compenser le header fixe -->
+<div class="header-spacer"></div>
+
+<main>
+
+  <!-- ============ SLIDER / BANNIÈRE PRINCIPALE ============ -->
+  <section class="hero" aria-label="Bannières promotionnelles">
+    <div class="slider" id="slider">
+
+      <article class="slide active" style="--slide-color:#F36C21;--slide-bg:#FFE7D9;">
+        <div class="slide-text">
+          <span class="slide-tag">Nouveauté</span>
+          <h1>L'élégance<br>commence ici</h1>
+          <p>Jusqu'à <strong>-30%</strong> sur une sélection de montre de qualité</p>
+          <a href="#produits" class="cta-btn">Découvrir l'offre</a>
+        </div>
+        <div class="slide-image">
+          <img src="./images/rolex.jpeg" alt="Montre Rolex en promotion">
+        </div>
+        <div class="slide-block">
+          <span class="block-price">-30%</span>
+          <span class="block-label">Sur les montres</span>
+        </div>
+      </article>
+
+      <article class="slide" style="--slide-color:#2E8EDC;--slide-bg:#DCEEFC;">
+        <div class="slide-text">
+          <span class="slide-tag">Exclusivité</span>
+          <h1>Des perruques<br>de bonnes qualités</h1>
+          <p>Bouclés, lisse et de toutes les couleur disponible</p>
+          <a href="#produits" class="cta-btn cta-blue">Voir</a>
+        </div>
+        <div class="slide-image">
+          <img src="./images/perruques.jpeg" alt="perruques">
+        </div>
+        <div class="slide-block block-blue">
+          <span class="block-price">2 ans</span>
+          <span class="block-label">Garantie incluse</span>
+        </div>
+      </article>
+
+      <article class="slide" style="--slide-color:#222222;--slide-bg:#F0F0F0;">
+        <div class="slide-text">
+          <span class="slide-tag">Best-seller</span>
+          <h1>Toujours bien habillé,<br>où que vous soyez</h1>
+          <p>Nos vêtements de luxe pour hommes comme pour femmes</p>
+          <a href="#produits" class="cta-btn cta-dark">J'en profite</a>
+        </div>
+        <div class="slide-image">
+          <img src="./images/robe.jpeg" alt="vêtements externe pour smartphone">
+        </div>
+        <div class="slide-block block-dark">
+          <span class="block-price">4.8★</span>
+          <span class="block-label">Note moyenne clients</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="slider-controls">
+      <button id="prevSlide" aria-label="Bannière précédente"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="slider-dots" id="sliderDots"></div>
+      <button id="nextSlide" aria-label="Bannière suivante"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ============ CATEGORIES RAPIDES ============ -->
+  <section class="quick-categories">
+    <a href="#produits" data-filter="cuisine" class="quick-cat">
+      <i class="fa-regular fa-clock"></i><span>Montres</span>
+    </a>
+    <a href="#produits" data-filter="informatique" class="quick-cat">
+      <i class="fa-solid fa-shirt"></i><span>Vêtements</span>
+    </a>
+    <a href="#produits" data-filter="gaming" class="quick-cat">
+      <i class="fa-solid fa-baby"></i><span>Couches</span>
+    </a>
+    <a href="#produits" data-filter="accessoires" class="quick-cat">
+      <i class="fa-solid fa-plug-circle-bolt"></i><span>Accessoires</span>
+    </a>
+    <a href="#produits" data-filter="tv" class="quick-cat">
+      <i class="fa-solid fa-scissors"></i><span>Perruques</span>
+    </a>
+  </section>
+
+  <!-- ============ PRODUITS ============ -->
+  <section class="products-section" id="produits">
+    <div class="section-heading">
+      <h2>Nos produits populaires</h2>
+      <p>Sélectionnés pour leur qualité, leur design et leur rapport qualité-prix.</p>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Les cartes produits sont injectées dynamiquement par script.js -->
+    </div>
+
+    <p class="no-results" id="noResults" hidden>Aucun produit ne correspond à votre recherche.</p>
+  </section>
+
+  <!-- ============ BANNIÈRE SECONDAIRE (bleu) ============ -->
+  <section class="banner-secondary" id="livraison">
+    <div class="banner-content">
+      <i class="fa-solid fa-truck-fast banner-icon"></i>
+      <div>
+        <h3>Livraison offerte dès 20 000 FCFA d'achat</h3>
+        <p>Expédition en 24h à 48h sur zone disponible</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <a href="#" class="logo footer-logo">
+        <!-- <span class="logo-mark"><i class="fa-solid fa-bolt"></i></span> -->
+         <img src="./images/logo.png" alt="logo" class="logofin">
+        <span class="logo-text" style="color: white;">Athéna<strong>Shop</strong></span>
+      </a>
+      <p>Votre boutique de confiance, des prix justes et un service client réactif.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Aide</h4>
+      <ul>
+        <li><a href="#reparation">Réparation</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#">Suivi de commande</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Boutique</h4>
+      <ul>
+        <li><a href="#produits">Tous les produits</a></li>
+        <li><a href="#promotions">Promotions</a></li>
+        <li><a href="#livraison">Livraison</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Suivez-nous</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://t.me/synapsex242" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+         <a href="https://wa.me/242050336960?text=Bonjour%2C%20je%20souhaite%20connaitre%20la%20votre%20tarif.%20:%0A%0A" aria-label="Whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 <a href="https://ossynapse.netlify.app/oss_company" target="_blank" rel="noopener noreferrer">Oss Compagny.</a> Tous droits réservés.</p>
+  </div>
+</footer>
+
+<!-- mis a jour -->
+ <!-- ============ VOLET PANIER ============ -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Votre panier">
+  <div class="cart-drawer-header">
+    <h3><i class="fa-solid fa-cart-shopping"></i> Mon panier</h3>
+    <button class="cart-close-btn" id="cartCloseBtn" aria-label="Fermer le panier">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div class="cart-drawer-body" id="cartDrawerBody">
+    <!-- Liste des articles injectée par script.js -->
+  </div>
+
+  <div class="cart-drawer-footer">
+    <div class="cart-total-row">
+      <span>Total</span>
+      <span id="cartTotal">0,00 €</span>
+    </div>
+    <button class="cta-btn cart-checkout-btn" id="checkoutBtn">Valider la commande</button>
+  </div>
+</aside>
+<!-- mis a jour -->
+
+<!-- ============ TOAST NOTIFICATION ============ -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+<script src="autre.js"></script>
+</body>
+</html>
