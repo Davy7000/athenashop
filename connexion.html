@@ -134,7 +134,8 @@
        console.log(localStorage.getItem('sexe'));
        
         if (localStorage.getItem('name') && localStorage.getItem('nom') && localStorage.getItem('numero') && localStorage.getItem('adress') && localStorage.getItem('sexe')) {
-            window.open('./rebour.html', '_self');
+            window.open('./rebour.html');
+            window.close();
         } else {
             alert('Veuillez remplir tous les champs du formulaire avant de continuer.');
         }

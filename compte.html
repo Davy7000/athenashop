@@ -41,6 +41,25 @@
        .genre{
         text-transform: capitalize;
        }
+       .remove{
+        width: 30%;
+        padding: 10px;
+        border: none;
+        background: black;
+        color: white;
+        font-weight: bolder;
+        border-radius: 5px;
+        position: relative;
+        left:35%;
+        cursor: pointer;
+       }
+       @media screen and (max-width: 600px) {
+        .remove{
+            width: 100%;
+            /*background: red;*/
+            left: 0;
+        }
+       }
     </style>
     <title>Mon compte</title>
 </head>
@@ -56,7 +75,8 @@
            <p><i class="fa-solid fa-user"></i> Nom: <span class="nom">user Name</span></p>
            <p><i class="fa-solid fa-phone"></i> Numéro de téléphone: <span class="numero">user number</span></p>
            <p><i class="fa-solid fa-envelope"></i> Adress mail: <span class="adress">user email</span></p>
-           <p><i class="fa-solid fa-venus-mars"></i> Sexe: <span class="genre">user genre</span></p>
+           <p><i class="fa-solid fa-venus-mars"></i> Sexe: <span class="genre">user genre</span></p> <br>
+           <button class="remove">Modifier les informations</button>
     </fieldset>
 <script>
     //recuperation des balises
@@ -65,6 +85,7 @@
     const number = document.querySelector('.numero');
     const adress = document.querySelector('.adress');
     const genre = document.querySelector('.genre');
+    const remove = document.querySelector('.remove');
     // fin de la recuperation
 
     // recuperation du local storage
@@ -73,7 +94,7 @@
     const usernom = localStorage.getItem('nom');
     const usernumber = localStorage.getItem('numero');
     const useradress = localStorage.getItem('adress');
-    console.log(username, usernom, usernumber, useradress);
+   // console.log(username, usernom, usernumber, useradress);
     // fin de la recuperation 
 
     // envoie des valeurs
@@ -82,6 +103,16 @@
     nom.textContent = `${usernom}`;
     adress.textContent = `${useradress}`;
     number.innerHTML = `${usernumber}`;
+
+    // supression des valeur et redirection vers la page de connexion
+    remove.addEventListener('click', () => {
+        localStorage.removeItem('name');
+        localStorage.removeItem('nom');
+        localStorage.removeItem('numero');
+        localStorage.removeItem('adress');
+        localStorage.removeItem('sexe');
+        window.open('./connexion.html', '_self');
+    });
 </script>
 </body>
 </html>
