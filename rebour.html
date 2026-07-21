@@ -31,15 +31,13 @@
             justify-content: center;
             position:relative;
             top: 15em;
-            left:7.3em;
+            left:20em;
             border-radius: 10px;
         }
         #message{
-            width: 80%;
             font-size: 20px;
             text-indent: 0px;
             min-height: 10vh;
-            border: 2px solid rgba(218, 208, 208, 0.5);
             background: transparent;
             display: flex;
             align-items: center;
@@ -48,9 +46,17 @@
             position:relative;
             top: 6em;
             left:3em;
-            border-radius: 10px;
         }
-       
+       @media (max-width: 600px) {
+        .heure{
+            left:7.3em;
+        }
+        #message{
+            color:red;
+            left:1em;
+            font-weight: bold;
+        }
+       }
     </style>
 </head>
 <body>
@@ -106,7 +112,7 @@ const nom = localStorage.getItem('nom');
         setInterval(durer,1000);
 
         setTimeout(() => {
-           window.open('./compte.html', '_self');
+          // window.open('./compte.html', '_self');
         }, 5000);
      </script>
 </body>
