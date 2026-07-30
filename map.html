@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Ma Position sur la Carte</title>
+  
+  <!-- CSS de Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100%; } /* La carte prend tout l'écran */
+    .info {
+      position: absolute;
+      top: 10px;
+      left: 50px;
+      z-index: 1000;
+      background: white;
+      padding: 10px;
+      border-radius: 8px;
+      font-family: sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="info" id="info">Recherche de ta position...</div>
+<div id="map"></div>
+
+<!-- JS de Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // 1. Créer la carte, centrée par défaut sur Brazzaville
+  const map = L.map('map').setView([-4.2634, 15.2429], 13);
+
+  // 2. Ajouter le fond de carte OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  let marker; // pour stocker le marqueur
+
+  // 3. Demander la position à l'utilisateur
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const lat = position.coords.latitude;
+      const lon = position.coords.longitude;
+      const precision = position.coords.accuracy;
+
+      // 4. Centrer la carte sur toi
+      map.setView([lat, lon], 16);
+
+      // 5. Ajouter un marqueur sur ta position
+      marker = L.marker([lat, lon]).addTo(map);
+      marker.bindPopup(`<b>Tu es ici</b><br>Précision: ${precision.toFixed(0)}m`).openPopup();
+
+      // 6. Ajouter un cercle de précision
+      L.circle([lat, lon], { radius: precision }).addTo(map);
+
+      // 7. Afficher les coordonnées
+      document.getElementById('info').innerHTML = 
+        `Lat: ${lat.toFixed(5)} <br> Lon: ${lon.toFixed(5)}`;
+    },
+    (erreur) => {
+      document.getElementById('info').innerHTML = "Erreur: " + erreur.message;
+      alert("Impossible d'accéder à ta position. Autorise la géolocalisation.");
+    }
+  );
+</script>
+
+</body>
+</html>

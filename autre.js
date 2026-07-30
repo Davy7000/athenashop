@@ -8,3 +8,9 @@
       showToast(`Adresse de livraison mise à jour : ${livraison.textContent}`, 'fa-solid fa-location-dot');
     }
   });
+
+  console.log(blc)
+
+  blc.addEventListener('click', () => {
+    window.open('./map.html', '_blank');
+  });
