@@ -12,5 +12,5 @@
   console.log(blc)
 
   blc.addEventListener('click', () => {
-    window.open('./map.html', '_blank');
+    window.open('./chargement.html', '_blank');
   });
