@@ -106,6 +106,42 @@
       rating: 4.8,
       reviews: 264,
       badge: 'Promo'
+    },
+    {
+      id: 'p9',
+      title: 'Lunettes Photochromique pour Homme',
+      category: 'accessoires',
+      categoryLabel: 'lunettes',
+      image: 'images/lphotohomme.jpg',
+      price: 7500,
+      oldPrice: 10000,
+      rating: 4.8,
+      reviews: 264,
+      badge: 'Promo'
+    },
+    {
+      id: 'p10',
+      title: 'Lunettes Photochromique pour Femme',
+      category: 'accessoires',
+      categoryLabel: 'lunettes',
+      image: 'images/lphotofemme.jpg',
+      price: 7500,
+      oldPrice: 10000,
+      rating: 4.8,
+      reviews: 264,
+      badge: 'Promo'
+    },
+    {
+      id: 'p11',
+      title: 'Maillot De Football',
+      category: 'informatique',
+      categoryLabel: 'Vêtements',
+      image: 'images/maillot.jpg',
+      price: 6500,
+      oldPrice: null,
+      rating: 4.8,
+      reviews: 264,
+      badge: null
     }
   ];
   /* ---------------------------------------------------------
