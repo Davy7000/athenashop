@@ -48,13 +48,23 @@
 #profil{
     text-transform: capitalize;
 }
+#picture{
+    height: 9em;
+    width: 9em;
+    border-radius: 100%;
+    border:2px solid white;
+}
     </style>
 </head>
 <body>
     <div id="message"></div> <br />
+     <img src="./images/Default.jpg" alt="photo du compte" id="picture"> <br> <br>
         <span id="profil"> Prenom  </span>
         
         <span id="profil1"> NOM </span>
+
+       
+
     <h1>Nous sommes le <br/>
     <span><span class="jour">jour</span></span> <span class="numero">XX</span> <span class="mois">mois</span> <span class="annee">XXXX</span></span></h1>
     <h1>Il est <br />
@@ -132,7 +142,7 @@
         
         setInterval(millS,100);
     
-      setTimeout(() => {
+    setTimeout(() => {
           window.open('./compte.html', '_self');
         }, 5000);
         
@@ -146,6 +156,13 @@ const profilname = document.querySelector('#profilname');
 
 profil.textContent = `${prenom}`;
 profil1.textContent = `${nom}`
+
+if (localStorage.getItem('athenaShop_profile_photo')) {
+    picture.src = localStorage.getItem('athenaShop_profile_photo');
+} else {
+    picture.src = './images/Default.jpg'
+}
+
     </script>
 </body>
 </html>
