@@ -67,6 +67,12 @@
             width: 100%;
         }
 
+         .stat:hover{
+                scale: 1.1;
+                box-shadow: 0 0 10px rgb(0, 0, 0);
+                transition:scale 1s;
+            }
+
         .top-header {
             min-height: 38px;
             padding: 0 5%;
@@ -1417,20 +1423,27 @@
         <ul class="menu">
 
             <li>
-                <button class="active">
+                <button class="active" id="userid">
                      <i class="fa-solid fa-user"></i> &nbsp; Informations personnelles
                 </button>
             </li>
 
+             <li>
+                <button id="solde">
+                    <i class="fa-solid fa-coins"></i> &nbsp;
+                    Solde
+                </button>
+            </li>
+
             <li>
-                <button>
+                <button id="parametre">
                     <i class="fa-solid fa-gear"></i> &nbsp;
                     paramètres
                 </button>
             </li>
 
             <li>
-                <button>
+                 <button id="ici">
                  <i class="fa-solid fa-map"></i> &nbsp; Mes adresses
                 </button>
             </li>
@@ -1535,6 +1548,7 @@
             </div>
 
 
+            
             <div class="stat">
 
                 <div class="stat-icon">
@@ -1552,7 +1566,6 @@
                     voir tous
                 </a>
             </div>
-
         </div>
 
 
@@ -1887,8 +1900,7 @@
         <!-- =================================================
              ADRESSES
         ================================================== -->
-
-        <section class="section">
+        <section class="section" id="iciadresse">
 
 
             <div class="section-title">
@@ -1898,7 +1910,7 @@
                 </h2>
 
                 <button class="orange-link edit-button" id="cadress">
-                    Gérer mes adresses
+                    Gérer mon adresse
             </button>
 
             </div>
@@ -2120,12 +2132,65 @@ logout.addEventListener('click', () => {
     window.open('index.html', '_self');
 });
 
-principal.textContent = 'Erreur lors de la recuperation des info';
-second.textContent = 'Erreur';
+principal.textContent = 'République du Congo 🇨🇬';
+second.textContent = 'Veuillez mettre à jour votre adresse de livraison';
 
+let destination;
 cadress.addEventListener('click', () => {
-    alert('Quelque chose c\'est mal passé, veuillez réessayer plus tard');
+    destination = prompt("Veuillez entrer votre adresse de livraison (Exemple: Brazzaville, Talangaï, Avenue de la paix, N° 123)");
+    localStorage.setItem('destination', destination); 
 });
+
+if (localStorage.getItem('destination')) {
+    second.textContent = localStorage.getItem('destination').toUpperCase();
+} else if (localStorage.getItem('destination') === null) {
+    alert('veuillez ne pas laisser le champ de saisi vide');
+    second.textContent = 'Veuillez mettre à jour votre adresse de livraison';
+
+}
+else {
+   /*  alert('') */
+} 
+
+ici.addEventListener('click', () => {
+    let adresseSection = confirm('votre adresse est bien:' + ' '+ localStorage.getItem('destination') + ' ' + 'voulez-vous la modifier?');
+    if (adresseSection) {
+        destination = prompt("Veuillez entrer votre adresse de livraison (Exemple: Brazzaville, Talangaï, Avenue de la paix, N° 123)");
+        localStorage.setItem('destination', destination); 
+        second.textContent = localStorage.getItem('destination').toUpperCase();
+    } else {
+        alert('vous avez annulé la modification de votre adresse');
+    }
+
+    ici.classList.add('active');
+    userid.classList.remove('active');
+    parametre.classList.remove('active');
+    solde.classList.remove('active'); 
+});
+
+parametre.addEventListener('click', () => {
+    parametre.classList.add('active');
+    userid.classList.remove('active');
+    ici.classList.remove('active');
+    solde.classList.remove('active'); 
+});
+
+userid.addEventListener('click', () => {
+    parametre.classList.remove('active');
+    userid.classList.add('active');
+    ici.classList.remove('active');
+    solde.classList.remove('active'); 
+    window.open('compte.html', '_self');
+});
+
+solde.addEventListener('click', () => {
+    solde.classList.add('active');
+    userid.classList.remove('active');
+    ici.classList.remove('active');
+    parametre.classList.remove('active'); 
+    alert('votre solde est de 0,00 FCFA pour le moment, veuillez effectuer un achat pour obtenir des points de fidélité et bénéficier d\'une remise sur vos prochains achats');
+});
+
 </script>
  
 </body>
